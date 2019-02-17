@@ -24,7 +24,7 @@ export const Users = async (object, args, ctx) => {
   }
 }
 
-export const User = (object, args, ctx) => UserModel.findOne({ id: args.id })
+export const User = (object, args, ctx) => UserModel.findById(args.id)
 
 export const AddUser = async (object, args, ctx) => {
   const { name, email, password } = args.input;
