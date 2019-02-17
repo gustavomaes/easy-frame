@@ -22,7 +22,7 @@ export const queries = {
         type: GraphQLNonNull(GraphQLInt),
       }
     },
-    resolve: (object, args, { me }) => isAuthenticated(me, Loader.Users(object, args, { me }))
+    resolve: (object, args, ctx) => isAuthenticated(ctx.me, Loader.Users(object, args, ctx))
   },
   user: {
     type: UserType,
@@ -31,7 +31,7 @@ export const queries = {
         type: GraphQLNonNull(GraphQLID),
       },
     },
-    resolve: (object, args, { me }) => isAuthenticated(me, Loader.User(object, args, { me }))
+    resolve: (object, args, ctx) => isAuthenticated(ctx.me, Loader.User(object, args, ctx))
   }
 }
 
