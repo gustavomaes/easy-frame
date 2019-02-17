@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "name": "easy-frame",
+    "public": true,
+    "alias": [
+      "easy-frame.now.sh"
+    ],
+    "builds": [
+      {
+        "src": "server/src/index.ts",
+        "use": "@now/node-server@canary"
+      }
+    ],
+    "routes": [{
+        "src": "^/graphql",
+        "dest": "/packages/server/src/index.ts"
+      }
+    ],
+    "env": {
+      "NODE_ENV": "development",
+      "GRAPHQL_PORT": "5000",
+      "JWT": "jwt-secret",
+      "MONGOURL": "mongo-url"
+    }
+  }
