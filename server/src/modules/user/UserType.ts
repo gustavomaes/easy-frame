@@ -3,6 +3,10 @@ import { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLNonNull, GraphQLI
 const UserType = new GraphQLObjectType({
   name: 'UserType',
   fields: {
+    id: {
+      type: GraphQLID,
+      resolve: (o) => o.id
+    },
     name: {
       type: GraphQLString,
       resolve: (o) => o.name
